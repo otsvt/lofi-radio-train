@@ -1,16 +1,28 @@
 <template>
   <main class="relative h-svh overflow-hidden perspective-midrange">
-    <div class="z-4 layer vision-shadow"></div>
+    <div class="z-4 layer bg-center vision-shadow"></div>
     <div
-      class="z-3 layer translate-z-2"
+      class="z-3 layer translate-z-2 transition-all"
+      :class="isCloseToWindow ? 'bg-center' : 'bg-bottom'"
       :style="{ backgroundImage: `url(${leftLeg})`, transform: `rotateY(${moveX * 5}deg) rotateX(${moveY * 4}deg)` }"
     ></div>
     <div
-      class="z-3 layer translate-z-2"
+      class="z-3 layer translate-z-2 transition-all"
+      :class="isCloseToWindow ? 'bg-center' : 'bg-bottom'"
       :style="{ backgroundImage: `url(${rightLeg})`, transform: `rotateY(${moveX * 8}deg) rotateX(${moveY * 6}deg)` }"
     ></div>
     <div
-      class="z-2 layer transition-transform ease-out"
+      class="z-3 layer translate-z-2 transition-all"
+      :class="isCloseToWindow ? 'bg-center' : 'bg-bottom'"
+      :style="{ backgroundImage: `url(${bag})`, transform: `rotateY(${moveX * 0}deg) rotateX(${moveY * 0}deg)` }"
+    ></div>
+    <div
+      class="z-3 layer translate-z-2 transition-all"
+      :class="isCloseToWindow ? 'bg-center' : 'bg-bottom'"
+      :style="{ backgroundImage: `url(${player})`, transform: `rotateY(${moveX * 0}deg) rotateX(${moveY * 0}deg)` }"
+    ></div>
+    <div
+      class="z-2 layer bg-center transition-transform ease-out"
       :style="{
         backgroundImage: `url(${carriage})`,
         transform: `rotateY(${moveX}deg) rotateX(${moveY}deg) translateZ(${0.25 * moveZ}rem)`,
@@ -18,26 +30,31 @@
     ></div>
     <div
       class="z-1 scene translate-z-2 transition-all"
-      :class="sceneBlur ? 'blur-xs scale-105' : ''"
+      :class="isZooming ? 'blur-xs scale-103' : ''"
       :style="{ transform: `rotateY(${moveY}deg) rotateX(${moveX}deg)` }"
     >
-      <div class="layer" :style="{ backgroundImage: `url(${scene1})` }"></div>
+      <div class="layer bg-centerr" :style="{ backgroundImage: `url(${scene1})` }"></div>
     </div>
   </main>
 </template>
 
 <script setup lang="ts">
-  import { ref, watch } from "vue";
+  import { computed, ref, watch } from "vue";
   import carriage from "@/shared/assets/main-backgrounds/carriage.png";
+  import bag from "@/shared/assets/main-backgrounds/bag.png";
+  import player from "@/shared/assets/main-backgrounds/player.png";
   import leftLeg from "@/shared/assets/main-backgrounds/left-leg.png";
   import rightLeg from "@/shared/assets/main-backgrounds/right-leg.png";
+
   import scene1 from "@/shared/assets/scenes/scene-1.png";
 
   const moveX = ref(0);
   const moveY = ref(0);
   const moveZ = ref(6);
 
-  const sceneBlur = ref(false);
+  const isZooming = ref(false);
+
+  const isCloseToWindow = computed(() => moveZ.value >= 50);
 
   window.addEventListener("mousemove", (event) => {
     moveX.value = (event.clientX - window.innerWidth / 2) * -0.0001;
@@ -53,7 +70,7 @@
   });
 
   watch(moveZ, () => {
-    sceneBlur.value = true;
+    isZooming.value = true;
     let blurTimeout = null;
 
     if (blurTimeout) {
@@ -61,8 +78,8 @@
     }
 
     blurTimeout = setTimeout(() => {
-      sceneBlur.value = false;
-    }, 500);
+      isZooming.value = false;
+    }, 200);
   });
 </script>
 
@@ -71,7 +88,6 @@
     position: absolute;
     inset: 0;
     background-repeat: no-repeat;
-    background-position: center;
     background-size: cover;
     will-change: transform;
   }
