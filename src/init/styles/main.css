@@ -1,1 +1,17 @@
 @import "tailwindcss";
+
+@theme {}
+
+@layer base {}
+
+@layer components {
+  .layer {
+    @apply absolute inset-0 bg-no-repeat bg-cover will-change-transform;
+  }
+
+  .scene {
+    @apply absolute inset-0 will-change-transform;
+  }
+}
+
+@layer utilities {}

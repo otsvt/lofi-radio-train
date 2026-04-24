@@ -1,6 +1,6 @@
 <template>
-  <main class="relative h-svh overflow-hidden perspective-midrange">
-    <div class="z-4 layer bg-center vision-shadow"></div>
+  <main class="relative h-svh perspective-midrange overflow-hidden">
+    <VisionShadow zIndex="z-4" />
     <div
       class="z-3 layer translate-z-2 transition-all"
       :class="isCloseToWindow ? 'bg-center' : 'bg-bottom'"
@@ -30,7 +30,7 @@
     ></div>
     <div
       class="z-1 scene translate-z-2 transition-all"
-      :class="isZooming ? 'blur-xs scale-103' : ''"
+      :class="isZooming ? 'blur-xs scale-101' : ''"
       :style="{ transform: `rotateY(${moveY}deg) rotateX(${moveX}deg)` }"
     >
       <div class="layer bg-centerr" :style="{ backgroundImage: `url(${scene1})` }"></div>
@@ -40,6 +40,7 @@
 
 <script setup lang="ts">
   import { computed, ref, watch } from "vue";
+  import { VisionShadow } from "@/pov";
   import carriage from "@/shared/assets/main-backgrounds/carriage.png";
   import bag from "@/shared/assets/main-backgrounds/bag.png";
   import player from "@/shared/assets/main-backgrounds/player.png";
@@ -54,7 +55,7 @@
 
   const isZooming = ref(false);
 
-  const isCloseToWindow = computed(() => moveZ.value >= 50);
+  const isCloseToWindow = computed(() => moveZ.value === 60);
 
   window.addEventListener("mousemove", (event) => {
     moveX.value = (event.clientX - window.innerWidth / 2) * -0.0001;
@@ -63,9 +64,9 @@
 
   window.addEventListener("wheel", (event) => {
     if (event.deltaY < 0) {
-      moveZ.value = Math.min(moveZ.value + 10, 60);
+      moveZ.value = 60;
     } else {
-      moveZ.value = Math.max(6, moveZ.value - 10);
+      moveZ.value = 6;
     }
   });
 
@@ -82,30 +83,3 @@
     }, 200);
   });
 </script>
-
-<style scoped>
-  .layer {
-    position: absolute;
-    inset: 0;
-    background-repeat: no-repeat;
-    background-size: cover;
-    will-change: transform;
-  }
-
-  .scene {
-    position: absolute;
-    inset: 0;
-    will-change: transform;
-  }
-
-  .vision-shadow {
-    pointer-events: none;
-    background: radial-gradient(
-      ellipse at center,
-      rgba(0, 0, 0, 0) 50%,
-      rgba(0, 0, 0, 0.15) 65%,
-      rgba(0, 0, 0, 0.25) 80%,
-      rgba(0, 0, 0, 0.65) 100%
-    );
-  }
-</style>
