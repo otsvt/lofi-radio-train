@@ -1,10 +1,13 @@
-import { ref, watch } from "vue";
+import { computed, ref, watch } from "vue";
+
+type MoveZValues = 6 | 60;
 
 const moveX = ref(0);
 const moveY = ref(0);
-const moveZ = ref(6);
+const moveZ = ref<MoveZValues>(6);
 
 const isZooming = ref(false);
+const isZoomedIn = computed(() => moveZ.value === 60);
 
 let zoomTimeout: ReturnType<typeof setTimeout> | null = null;
 
@@ -34,5 +37,5 @@ window.addEventListener("wheel", (event) => {
 });
 
 export const useCameraMovement = () => {
-  return { moveX, moveY, moveZ, isZooming };
+  return { moveX, moveY, moveZ, isZooming, isZoomedIn };
 };

@@ -17,9 +17,7 @@
     zIndex: string;
   }>();
 
-  const { moveX, moveY, moveZ } = useCameraMovement();
-
-  const isCloseToWindow = computed(() => moveZ.value === 60);
+  const { moveX, moveY, isZoomedIn: isCloseToWindow } = useCameraMovement();
 
   const povLayerClass = computed(() => [
     "layer translate-z-2 transition-all",
@@ -41,12 +39,12 @@
     {
       image: bag,
       layerClass: povLayerClass.value,
-      transform: `rotateY(0deg) rotateX(0deg)`,
+      transform: `rotateY(${moveX.value * 2}deg) rotateX(${moveY.value * 4}deg)`,
     },
     {
       image: player,
       layerClass: povLayerClass.value,
-      transform: `rotateY(0deg) rotateX(0deg)`,
+      transform: `rotateY(${moveX.value * 2}deg) rotateX(${moveY.value * 4}deg)`,
     },
   ]);
 </script>
