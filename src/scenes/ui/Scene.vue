@@ -11,7 +11,6 @@
   import { useCameraMovement } from "@/shared/composables";
 
   import scene1 from "@/shared/assets/scenes/scene-1.png";
-
   const props = defineProps<{
     zIndex: string;
   }>();
