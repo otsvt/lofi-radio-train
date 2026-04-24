@@ -1,8 +1,24 @@
-import { ref } from "vue";
+import { ref, watch } from "vue";
 
 const moveX = ref(0);
 const moveY = ref(0);
 const moveZ = ref(6);
+
+const isZooming = ref(false);
+
+let zoomTimeout: ReturnType<typeof setTimeout> | null = null;
+
+watch(moveZ, () => {
+  isZooming.value = true;
+
+  if (zoomTimeout) {
+    clearTimeout(zoomTimeout);
+  }
+
+  zoomTimeout = setTimeout(() => {
+    isZooming.value = false;
+  }, 200);
+});
 
 window.addEventListener("mousemove", (event) => {
   moveX.value = (event.clientX - window.innerWidth / 2) * -0.0001;
@@ -18,5 +34,5 @@ window.addEventListener("wheel", (event) => {
 });
 
 export const useCameraMovement = () => {
-  return { moveX, moveY, moveZ };
+  return { moveX, moveY, moveZ, isZooming };
 };
