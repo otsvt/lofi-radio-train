@@ -12,6 +12,18 @@
   .scene {
     @apply absolute inset-0 will-change-transform;
   }
+
+  .scene-track {
+    @apply absolute inset-0 overflow-hidden;
+  }
+
+  .scene-layer {
+    @apply h-full w-[200%] flex will-change-transform;
+  }
+
+  .scene-frame {
+    @apply h-full flex-1/2 bg-cover bg-center bg-no-repeat;
+  }
 }
 
 @layer utilities {}
