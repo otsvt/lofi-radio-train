@@ -33,7 +33,7 @@
       :class="isZooming ? 'blur-xs scale-101' : ''"
       :style="{ transform: `rotateY(${moveY}deg) rotateX(${moveX}deg)` }"
     >
-      <div class="layer bg-centerr" :style="{ backgroundImage: `url(${scene1})` }"></div>
+      <div class="layer bg-center" :style="{ backgroundImage: `url(${scene1})` }"></div>
     </div>
   </main>
 </template>
@@ -41,6 +41,8 @@
 <script setup lang="ts">
   import { computed, ref, watch } from "vue";
   import { VisionShadow } from "@/pov";
+  import { useCameraMovement } from "@/shared/composables";
+
   import carriage from "@/shared/assets/main-backgrounds/carriage.png";
   import bag from "@/shared/assets/main-backgrounds/bag.png";
   import player from "@/shared/assets/main-backgrounds/player.png";
@@ -49,26 +51,11 @@
 
   import scene1 from "@/shared/assets/scenes/scene-1.png";
 
-  const moveX = ref(0);
-  const moveY = ref(0);
-  const moveZ = ref(6);
-
-  const isZooming = ref(false);
+  const { moveX, moveY, moveZ } = useCameraMovement();
 
   const isCloseToWindow = computed(() => moveZ.value === 60);
 
-  window.addEventListener("mousemove", (event) => {
-    moveX.value = (event.clientX - window.innerWidth / 2) * -0.0001;
-    moveY.value = (event.clientY - window.innerHeight / 2) * -0.0005;
-  });
-
-  window.addEventListener("wheel", (event) => {
-    if (event.deltaY < 0) {
-      moveZ.value = 60;
-    } else {
-      moveZ.value = 6;
-    }
-  });
+  const isZooming = ref(false);
 
   watch(moveZ, () => {
     isZooming.value = true;
