@@ -36,7 +36,6 @@
   import layer3 from "@/shared/assets/scenes/1/scene-1-layer-3.png";
   import layer4 from "@/shared/assets/scenes/1/scene-1-layer-4.png";
   import layer5 from "@/shared/assets/scenes/1/scene-1-layer-5.png";
-  import layer6 from "@/shared/assets/scenes/1/scene-1-layer-6.png";
 
   const props = defineProps<{
     zIndex: string;
@@ -63,12 +62,12 @@
     animation: move 50s linear infinite;
   }
   .animation-move-3 {
-    animation: move 100s linear infinite;
+    animation: move 250s linear infinite;
   }
   .animation-move-4 {
-    animation: move 400s linear infinite;
+    animation: move 1000s linear infinite;
   }
   .animation-move-5 {
-    animation: move 450s linear infinite;
+    animation: move 1200s linear infinite;
   }
 </style>

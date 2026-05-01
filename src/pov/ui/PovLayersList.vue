@@ -20,7 +20,7 @@
   const { moveX, moveY, isZoomedIn: isCloseToWindow } = useCameraMovement();
 
   const povLayerClass = computed(() => [
-    "layer translate-z-2 transition-all",
+    "layer translate-z-2 transition-all ease-linear",
     zIndex,
     isCloseToWindow.value ? "bg-center" : "bg-bottom",
   ]);
