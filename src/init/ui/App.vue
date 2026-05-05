@@ -8,12 +8,13 @@
     <InterfaceOnButton zIndex="z-6" />
     <VisionBlur zIndex="z-7" blur="backdrop-blur-xs" />
     <InterfaceLayer zIndex="z-8" />
+    <InterfaceHologram zIndex="z-9" />
   </main>
 </template>
 
 <script setup lang="ts">
   import { PovLayersList, VisionBlur, VisionShadow, WindowLayer } from "@/pov";
-  import { InterfaceLayer, InterfaceOnButton } from "@/interface";
+  import { InterfaceHologram, InterfaceLayer, InterfaceOnButton } from "@/interface";
   import { Scene } from "@/scenes";
   import { WeatherLayer, weatherVariants } from "@/features";
 </script>
