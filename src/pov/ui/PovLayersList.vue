@@ -3,8 +3,9 @@
 </template>
 
 <script setup lang="ts">
-  import { useCameraMovement } from "@/shared/composables";
   import { computed } from "vue";
+  import { useInterface } from "@/interface";
+  import { useCameraMovement } from "@/shared/composables";
 
   import PovLayer from "./PovLayer.vue";
 
@@ -19,11 +20,21 @@
 
   const { moveX, moveY, isZoomedIn: isCloseToWindow } = useCameraMovement();
 
+  const { isInterfaceOpen } = useInterface();
+
   const povLayerClass = computed(() => [
     "layer translate-z-2 transition-all ease-linear",
     zIndex,
     isCloseToWindow.value ? "bg-center" : "bg-bottom",
   ]);
+
+  const playerTransform = computed(() => {
+    if (isInterfaceOpen.value) {
+      return `translateX(-5rem) translateY(25vh)`;
+    } else {
+      return `rotateY(${moveX.value * 2}deg) rotateX(${moveY.value * 4}deg)`;
+    }
+  });
 
   const povLayers = computed(() => [
     {
@@ -44,7 +55,7 @@
     {
       image: player,
       layerClass: povLayerClass.value,
-      transform: `rotateY(${moveX.value * 2}deg) rotateX(${moveY.value * 4}deg)`,
+      transform: playerTransform.value,
     },
   ]);
 </script>

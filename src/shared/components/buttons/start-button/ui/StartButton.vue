@@ -1,6 +1,6 @@
 <!-- <template>
   <button
-    class="relative p-2 flex-center border-2 rounded transition-all border-slate-300/50 backdrop-blur-xs -rotate-y-6 rotate-x-70 -rotate-z-10 hover:rotate-x-0 hover:rotate-y-0 hover:rotate-z-0"
+    class="p-2 flex-center border-2 rounded transition-all border-slate-300/50 backdrop-blur-xs -rotate-y-6 rotate-x-70 -rotate-z-10 hover:rotate-x-0 hover:rotate-y-0 hover:rotate-z-0"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -21,7 +21,7 @@
 
 <template>
   <button
-    class="relative p-2 flex-center border-2 rounded transition-all border-slate-300/50 backdrop-blur-xs -rotate-y-6 rotate-x-70 -rotate-z-10 hover:scale-110 hover:ring-8 ring-slate-100/20"
+    class="p-2 flex-center border-2 rounded transition-all border-slate-300/50 backdrop-blur-xs -rotate-y-6 rotate-x-70 -rotate-z-10 hover:scale-110 hover:ring-8 ring-slate-100/20"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"

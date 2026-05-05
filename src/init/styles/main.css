@@ -30,6 +30,12 @@
   .scene-frame {
     @apply h-full shrink-0 object-cover;
   }
+
+  .interface-button-position {
+    @apply absolute;
+    bottom: calc(var(--index) * 1.9);
+    right: calc(var(--index) * 19);
+  }
 }
 
 @layer utilities {
@@ -37,9 +43,5 @@
     @apply flex items-center justify-center;
   }
 
-  .start-button-position {
-    @apply absolute;
-    bottom: calc(var(--index) * 1.9);
-    right: calc(var(--index) * 19);
-  }
+
 }
