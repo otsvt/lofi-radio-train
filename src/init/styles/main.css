@@ -39,7 +39,7 @@
 
   .start-button-position {
     @apply absolute;
-    bottom: calc(var(--index) * 1.5);
-    right: calc(var(--index) * 20);
+    bottom: calc(var(--index) * 1.9);
+    right: calc(var(--index) * 19);
   }
 }
