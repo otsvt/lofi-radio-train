@@ -6,12 +6,13 @@
     <PovLayersList zIndex="z-4" />
     <VisionShadow zIndex="z-5" />
     <InterfaceOnButton zIndex="z-6" />
-    <InterfaceLayer zIndex="z-7" />
+    <VisionBlur zIndex="z-7" blur="backdrop-blur-xs" />
+    <InterfaceLayer zIndex="z-8" />
   </main>
 </template>
 
 <script setup lang="ts">
-  import { PovLayersList, VisionShadow, WindowLayer } from "@/pov";
+  import { PovLayersList, VisionBlur, VisionShadow, WindowLayer } from "@/pov";
   import { InterfaceLayer, InterfaceOnButton } from "@/interface";
   import { Scene } from "@/scenes";
   import { WeatherLayer, weatherVariants } from "@/features";

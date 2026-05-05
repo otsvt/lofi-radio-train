@@ -8,17 +8,20 @@
   import { useInterface } from "../composables/useInterface";
 
   import activePlayer from "@/shared/assets/main-backgrounds/player-active.png";
+  import { useCameraMovement } from "@/shared/composables";
 
   const { zIndex } = defineProps<{
     zIndex: string;
   }>();
+
+  const { isZoomedIn: isCloseToWindow } = useCameraMovement();
 
   const { isInterfaceOpen } = useInterface();
 
   const playerLayerClass = computed(() => [
     "layer translate-z-2 transition-all duration-500 ease-in-out",
     zIndex,
-    "bg-center",
+    isCloseToWindow.value ? "bg-center" : "bg-bottom",
   ]);
 
   const playerTransform = computed(() => {
