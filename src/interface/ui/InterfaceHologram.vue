@@ -1,8 +1,13 @@
 <template>
   <Transition name="hologram-glitch">
     <section v-if="isShowing" :class="['absolute inset-0 flex-center', zIndex]">
-      <div class="-translate-y-20 perspective-midrange">
-        <div class="relative rotate-x-10 text-panel-text text-shadow-lg text-shadow-panel-text/40">
+      <div
+        :class="[
+          'perspective-midrange transition-transform ease-in-out duration-500',
+          isCloseToWindow ? '-translate-y-10 ' : '-translate-y-30',
+        ]"
+      >
+        <div class="relative -rotate-x-8 text-panel-text text-shadow-lg text-shadow-panel-text/40">
           <div
             :class="[
               'relative w-4xl aspect-video py-4 px-8 hologram-background',
@@ -35,12 +40,15 @@
 <script setup lang="ts">
   import { ref, watch } from "vue";
   import { useInterface } from "../composables/useInterface";
+  import { useCameraMovement } from "@/shared/composables";
 
   import CloseButton from "./components/CloseButton.vue";
 
   defineProps<{
     zIndex: string;
   }>();
+
+  const { isZoomedIn: isCloseToWindow } = useCameraMovement();
 
   const { isInterfaceOpen, closeInterface } = useInterface();
 
