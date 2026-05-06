@@ -2,9 +2,17 @@
 
 @theme {
   --index: calc(1vh + 1vw);
+
+  --color-panel-text: #ff9a32;
 }
 
+/* font-family: "Share Tech Mono", "JetBrains Mono" */
+
 @layer base {
+  html {
+    font-family: monospace;
+  }
+
   button {
     @apply cursor-pointer outline-none;
   }
@@ -42,6 +50,4 @@
   .flex-center {
     @apply flex items-center justify-center;
   }
-
-
 }
