@@ -1,6 +1,6 @@
 <template>
   <Transition name="hologram-glitch">
-    <section v-if="isShowing" :class="['absolute inset-0 flex-center', zIndex]">
+    <section v-if="isShowingPanel" :class="['absolute inset-0 flex-center', zIndex]">
       <div
         :class="[
           'perspective-midrange transition-transform ease-in-out duration-500',
@@ -54,13 +54,13 @@
 
   const { isInterfaceOpen, closeInterface } = useInterface();
 
-  const isShowing = ref(false);
+  const isShowingPanel = ref(false);
 
   watch(isInterfaceOpen, (val) => {
     if (val) {
-      setTimeout(() => (isShowing.value = val), 500);
+      setTimeout(() => (isShowingPanel.value = val), 500);
     } else {
-      isShowing.value = val;
+      isShowingPanel.value = val;
     }
   });
 </script>
