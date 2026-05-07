@@ -10,24 +10,28 @@
         <div class="relative -rotate-x-8 text-panel-text text-shadow-lg text-shadow-panel-text/40">
           <div
             :class="[
-              'relative w-4xl aspect-video py-4 px-8 hologram-background',
+              'relative w-4xl aspect-video py-4 px-8 flex flex-col hologram-background',
               'before:absolute before:inset-0 before:pointer-events-none',
               'after:absolute after:inset-0 after:pointer-events-none',
             ]"
           >
-            <header class="py-2 flex items-center justify-between gap-x-2 text-3xl">
-              <h2 class="font-medium">LOFI RADIO</h2>
+            <header class="py-2 flex items-center justify-between gap-x-2l">
+              <h2 class="text-4xl font-medium">LOFI RADIO</h2>
               <CloseButton
                 class="transition-shadow hover:ring-2"
                 iconClass="h-10 w-10 stroke-panel-text"
                 @click="closeInterface"
               />
             </header>
-            <div class="h-0.5 bg-panel-text hologram-line-shadow"></div>
-            <div>
-              <p>NOW PLAYING</p>
-              <h3>Midnight Drive</h3>
-              <span>The Lofi Club</span>
+            <div class="h-1 rounded bg-panel-text/80 hologram-line-shadow"></div>
+            <div class="grow py-4 flex">
+              <div class="flex-[55%]">
+                <p>NOW PLAYING</p>
+                <h3>Midnight Drive</h3>
+                <span>The Lofi Club</span>
+              </div>
+              <div class="w-1 rounded bg-panel-text/80 hologram-line-shadow"></div>
+              <div class="flex-[45%]"></div>
             </div>
           </div>
           <div class="absolute top-full left-1/2 -translate-x-1/2 h-16 w-[120%] hologram-projection"></div>
