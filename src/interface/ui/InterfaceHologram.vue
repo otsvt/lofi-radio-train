@@ -16,21 +16,17 @@
             ]"
           >
             <header class="py-2 flex items-center justify-between gap-x-2l">
-              <h2 class="text-4xl font-medium">LOFI RADIO</h2>
+              <h2 class="text-4xl">LOFI RADIO</h2>
               <CloseButton
                 class="transition-shadow hover:ring-2"
                 iconClass="h-10 w-10 stroke-panel-text"
                 @click="closeInterface"
               />
             </header>
-            <div class="h-1 rounded bg-panel-text/80 hologram-line-shadow"></div>
+            <Divider size="h-1" color="bg-panel-text/80" />
             <div class="grow py-4 flex">
-              <div class="flex-[55%]">
-                <p>NOW PLAYING</p>
-                <h3>Midnight Drive</h3>
-                <span>The Lofi Club</span>
-              </div>
-              <div class="w-1 rounded bg-panel-text/80 hologram-line-shadow"></div>
+              <MediaPlayer :flexSize="'flex-[55%]'" />
+              <Divider size="w-1" color="bg-panel-text/80" />
               <div class="flex-[45%]"></div>
             </div>
           </div>
@@ -47,6 +43,8 @@
   import { useCameraMovement } from "@/shared/composables";
 
   import CloseButton from "./components/CloseButton.vue";
+  import MediaPlayer from "./components/MediaPlayer.vue";
+  import Divider from "./components/Divider.vue";
 
   defineProps<{
     zIndex: string;
@@ -92,10 +90,6 @@
 
   .hologram-background::after {
     background: radial-gradient(circle at 50% 0%, rgba(255, 187, 101, 0.18), transparent 55%);
-  }
-
-  .hologram-line-shadow {
-    box-shadow: 0 0 12px rgba(255, 145, 38, 0.8);
   }
 
   .hologram-projection {

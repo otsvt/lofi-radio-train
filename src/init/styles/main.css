@@ -12,7 +12,6 @@
   html {
     font-family: 'Share Tech Mono', monospace;
     font-size: 14px;
-    line-height: 1;
   }
 
   button {
@@ -51,5 +50,9 @@
 @layer utilities {
   .flex-center {
     @apply flex items-center justify-center;
+  }
+
+  .hologram-line-shadow {
+    box-shadow: 0 0 12px rgba(255, 145, 38, 0.8);
   }
 }
