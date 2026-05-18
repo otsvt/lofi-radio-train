@@ -42,3 +42,5 @@ export const weatherVariants = {
     opacity: 0.48,
   },
 } as const;
+
+export type WeatherValue = keyof typeof weatherVariants | "off";

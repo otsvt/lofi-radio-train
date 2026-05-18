@@ -45,6 +45,10 @@
     bottom: calc(var(--index) * 1.9);
     right: calc(var(--index) * 19);
   }
+
+  .setting-legend {
+    @apply px-2 flex items-center justify-center ring-panel-text/40 cursor-pointer has-checked:ring-2;
+  }
 }
 
 @layer utilities {
