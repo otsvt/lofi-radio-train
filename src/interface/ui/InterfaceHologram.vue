@@ -25,9 +25,9 @@
             </header>
             <Divider size="h-1" color="bg-panel-text/80" />
             <div class="grow py-4 flex">
-              <MediaPlayer :flexSize="'flex-[55%]'" />
+              <MediaPlayer flexSize="flex-[55%]" />
               <Divider size="w-1" color="bg-panel-text/80" />
-              <div class="flex-[45%]"></div>
+              <Settings flexSize="flex-[45%]" />
             </div>
           </div>
           <div class="absolute top-full left-1/2 -translate-x-1/2 h-16 w-[120%] hologram-projection"></div>
@@ -39,12 +39,14 @@
 
 <script setup lang="ts">
   import { ref, watch } from "vue";
-  import { useInterface } from "../composables/useInterface";
   import { useCameraMovement } from "@/shared/composables";
+
+  import { useInterface } from "../composables/useInterface";
 
   import CloseButton from "./components/CloseButton.vue";
   import MediaPlayer from "./components/MediaPlayer.vue";
   import Divider from "./components/Divider.vue";
+  import Settings from "./components/Settings.vue";
 
   defineProps<{
     zIndex: string;

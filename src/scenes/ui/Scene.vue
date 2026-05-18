@@ -55,7 +55,7 @@
     }
   }
 
-  .animation-move-1 {
+  /* .animation-move-1 {
     animation: move 20s linear infinite;
   }
   .animation-move-2 {
@@ -69,5 +69,5 @@
   }
   .animation-move-5 {
     animation: move 1200s linear infinite;
-  }
+  } */
 </style>
