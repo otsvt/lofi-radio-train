@@ -1,7 +1,7 @@
 <template>
   <main class="relative h-svh perspective-midrange overflow-hidden">
     <Scene zIndex="z-1" />
-    <WeatherLayer zIndex="z-2" v-bind="weatherVariants.mediumSnow" />
+    <WeatherLayer zIndex="z-2" v-if="weatherConfig" v-bind="weatherConfig" />
     <WindowLayer zIndex="z-3" />
     <PovLayersList zIndex="z-4" />
     <VisionShadow zIndex="z-5" />
@@ -16,5 +16,7 @@
   import { PovLayersList, VisionBlur, VisionShadow, WindowLayer } from "@/pov";
   import { InterfaceHologram, InterfaceLayer, InterfaceOnButton } from "@/interface";
   import { Scene } from "@/scenes";
-  import { WeatherLayer, weatherVariants } from "@/features";
+  import { useWeather, WeatherLayer } from "@/features";
+
+  const { weatherConfig } = useWeather();
 </script>

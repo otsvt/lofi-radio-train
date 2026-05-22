@@ -12,10 +12,6 @@ const weatherConfig = computed(() => {
   return weatherVariants[weather.value];
 });
 
-const changeWeather = (value: WeatherValue) => {
-  weather.value = value;
-};
-
 export const useWeather = () => {
-  return { weather, weatherConfig, changeWeather };
+  return { weather, weatherConfig };
 };

@@ -7,9 +7,10 @@
 </template>
 
 <script setup lang="ts">
+  import { WeatherSetting } from "@/features";
+
   import Divider from "./Divider.vue";
   import SceneSetting from "./SceneSetting.vue";
-  import WeatherSetting from "./WeatherSetting.vue";
 
   defineProps<{
     flexSize: string;
