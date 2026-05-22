@@ -1,6 +1,6 @@
 <template>
   <main class="relative h-svh perspective-midrange overflow-hidden">
-    <Scene zIndex="z-1" />
+    <SceneLayer zIndex="z-1" />
     <WeatherLayer zIndex="z-2" v-if="weatherConfig" v-bind="weatherConfig" />
     <WindowLayer zIndex="z-3" />
     <PovLayersList zIndex="z-4" />
@@ -15,7 +15,7 @@
 <script setup lang="ts">
   import { PovLayersList, VisionBlur, VisionShadow, WindowLayer } from "@/pov";
   import { InterfaceHologram, InterfaceLayer, InterfaceOnButton } from "@/interface";
-  import { Scene } from "@/scenes";
+  import { SceneLayer } from "@/features/scenes";
   import { useWeather, WeatherLayer } from "@/features/weather";
 
   const { weatherConfig } = useWeather();

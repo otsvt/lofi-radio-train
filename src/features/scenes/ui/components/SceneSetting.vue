@@ -10,5 +10,5 @@
 </template>
 
 <script setup lang="ts">
-  import SettingButton from "./SettingButton.vue";
+  import { SettingButton } from "@/shared/components/buttons/setting-button";
 </script>
