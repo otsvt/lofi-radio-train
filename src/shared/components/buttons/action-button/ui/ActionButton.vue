@@ -1,6 +1,6 @@
 <template>
   <button
-    class="px-2 flex-center text-2xl font-bold uppercase transition-opacity disabled:opacity-30"
+    class="px-2 flex-center text-2xl font-bold uppercase transition-opacity hover:opacity-80 disabled:opacity-30"
     :disabled="disabled"
   >
     {{ label }}
