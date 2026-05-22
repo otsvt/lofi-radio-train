@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&family=Share+Tech+Mono&display=swap');
-
 @import "tailwindcss";
 
 @theme {
@@ -12,10 +11,11 @@
   html {
     font-family: 'Share Tech Mono', monospace;
     font-size: 14px;
+    cursor: default;
   }
 
   button {
-    @apply cursor-pointer outline-none;
+    @apply cursor-pointer outline-none disabled:cursor-auto;
   }
 }
 
