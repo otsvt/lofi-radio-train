@@ -16,7 +16,7 @@
   import { PovLayersList, VisionBlur, VisionShadow, WindowLayer } from "@/pov";
   import { InterfaceHologram, InterfaceLayer, InterfaceOnButton } from "@/interface";
   import { Scene } from "@/scenes";
-  import { useWeather, WeatherLayer } from "@/features";
+  import { useWeather, WeatherLayer } from "@/features/weather";
 
   const { weatherConfig } = useWeather();
 </script>

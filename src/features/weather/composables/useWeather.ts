@@ -7,9 +7,9 @@ const weather = ref<WeatherValue>("off");
 const weatherConfig = computed(() => {
   if (weather.value === "off") {
     return null;
+  } else {
+    return weatherVariants[weather.value];
   }
-
-  return weatherVariants[weather.value];
 });
 
 export const useWeather = () => {

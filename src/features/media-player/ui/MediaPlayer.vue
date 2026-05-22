@@ -16,7 +16,7 @@
 <script setup lang="ts">
   import { computed, ref } from "vue";
 
-  import MediaPlayerButton from "./MediaPlayerButton.vue";
+  import MediaPlayerButton from "./components/MediaPlayerButton.vue";
 
   defineProps<{
     flexSize: string;

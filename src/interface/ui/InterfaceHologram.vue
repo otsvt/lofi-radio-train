@@ -39,15 +39,14 @@
 
 <script setup lang="ts">
   import { ref, watch } from "vue";
+  import { MediaPlayer } from "@/features/media-player";
   import { useCameraMovement } from "@/shared/composables";
+  import { CloseButton } from "@/shared/components/buttons/close-button";
 
   import { useInterface } from "../composables/useInterface";
 
-  import CloseButton from "./components/CloseButton.vue";
-  import MediaPlayer from "./components/MediaPlayer.vue";
   import Divider from "./components/Divider.vue";
   import Settings from "./components/Settings.vue";
-
   defineProps<{
     zIndex: string;
   }>();
