@@ -43,4 +43,21 @@ export const weatherVariants = {
   },
 } as const;
 
+export const weatherOptions = {
+  off: {
+    value: "off",
+    label: "off",
+  },
+  rain: [
+    { value: "lightRain", label: "light" },
+    { value: "mediumRain", label: "medium" },
+    { value: "heavyRain", label: "heavy" },
+  ],
+  snow: [
+    { value: "lightSnow", label: "light" },
+    { value: "mediumSnow", label: "medium" },
+    { value: "heavySnow", label: "heavy" },
+  ],
+} as const;
+
 export type WeatherValue = keyof typeof weatherVariants | "off";
