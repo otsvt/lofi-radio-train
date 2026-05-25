@@ -16,7 +16,7 @@
             ]"
           >
             <header class="py-2 flex items-center justify-between gap-x-2l">
-              <h2 class="text-4xl">LOFI RADIO</h2>
+              <h2 class="text-4xl uppercase">lofi radio train</h2>
               <CloseButton
                 class="transition-shadow hover:ring-2"
                 iconClass="h-10 w-10 stroke-panel-text"
@@ -67,7 +67,7 @@
   });
 </script>
 
-<style>
+<style scoped>
   .hologram-background {
     border: 2px solid rgba(255, 145, 38, 0.9);
     background:
