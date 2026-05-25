@@ -11,44 +11,16 @@
 </template>
 
 <script setup lang="ts">
-  import { computed, ref } from "vue";
+  import { onBeforeUnmount } from "vue";
   import { ActionButton } from "@/shared/components/buttons/action-button";
   import { SettingButton } from "@/shared/components/buttons/setting-button";
 
-  const scenes = [
-    {
-      label: "night city",
-    },
-    {
-      label: "mountains",
-    },
-  ];
+  import { useScene } from "../../composables/useScene";
 
-  const sceneIndex = ref(0);
-  const selectedSceneIndex = ref(sceneIndex.value);
+  const { selectedScene, isSelectedSame, selectPrevScene, selectNextScene, applySelectedScene, resetSelectedScene } =
+    useScene();
 
-  const selectedScene = computed(() => scenes[selectedSceneIndex.value]);
-  const isSelectedSame = computed(() => {
-    return sceneIndex.value === selectedSceneIndex.value;
+  onBeforeUnmount(() => {
+    resetSelectedScene();
   });
-
-  const selectNextScene = () => {
-    if (selectedSceneIndex.value === scenes.length - 1) {
-      selectedSceneIndex.value = 0;
-    } else {
-      selectedSceneIndex.value += 1;
-    }
-  };
-
-  const selectPrevScene = () => {
-    if (selectedSceneIndex.value === 0) {
-      selectedSceneIndex.value = scenes.length - 1;
-    } else {
-      selectedSceneIndex.value -= 1;
-    }
-  };
-
-  const applySelectedScene = () => {
-    sceneIndex.value = selectedSceneIndex.value;
-  };
 </script>
