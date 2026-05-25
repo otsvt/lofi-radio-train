@@ -9,8 +9,9 @@
 </template>
 
 <script setup lang="ts">
-  import carriage from "@/shared/assets/main-backgrounds/carriage.png";
   import { useCameraMovement } from "@/shared/composables";
+
+  import carriage from "@/shared/assets/main-backgrounds/carriage.png";
 
   const props = defineProps<{
     zIndex: string;

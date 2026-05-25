@@ -6,7 +6,7 @@
       <span>{{ selectedScene.label }}</span>
       <SettingButton symbols=">" @click="selectNextScene" />
     </div>
-    <ActionButton class="mx-auto" label="[ apply ]" :disabled="isSelectedSame" @click="applySelectedScene" />
+    <ActionButton class="mx-auto" label="[ apply ]" :disabled="isApplyDisabled" @click="applySelectedScene" />
   </div>
 </template>
 
@@ -17,7 +17,7 @@
 
   import { useScene } from "../../composables/useScene";
 
-  const { selectedScene, isSelectedSame, selectPrevScene, selectNextScene, applySelectedScene, resetSelectedScene } =
+  const { selectedScene, isApplyDisabled, selectPrevScene, selectNextScene, applySelectedScene, resetSelectedScene } =
     useScene();
 
   onBeforeUnmount(() => {

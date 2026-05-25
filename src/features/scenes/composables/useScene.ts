@@ -2,13 +2,18 @@ import { computed, ref } from "vue";
 
 import { sceneVariants } from "../constants/scene";
 
+const SCENE_CHANGING_TIMEOUT = 500;
+
 const currentSceneIndex = ref(0);
 const selectedSceneIndex = ref(currentSceneIndex.value);
 
+const isSceneChanging = ref(false);
+
 const currentScene = computed(() => sceneVariants[currentSceneIndex.value]);
 const selectedScene = computed(() => sceneVariants[selectedSceneIndex.value]);
-const isSelectedSame = computed(() => {
-  return currentSceneIndex.value === selectedSceneIndex.value;
+
+const isApplyDisabled = computed(() => {
+  return currentSceneIndex.value === selectedSceneIndex.value || isSceneChanging.value;
 });
 
 const selectNextScene = () => {
@@ -28,18 +33,35 @@ const selectPrevScene = () => {
 };
 
 const applySelectedScene = () => {
-  currentSceneIndex.value = selectedSceneIndex.value;
+  if (isSceneChanging.value) {
+    return;
+  }
+
+  isSceneChanging.value = true;
+
+  setTimeout(() => {
+    currentSceneIndex.value = selectedSceneIndex.value;
+  }, SCENE_CHANGING_TIMEOUT);
+  setTimeout(() => {
+    isSceneChanging.value = false;
+  }, SCENE_CHANGING_TIMEOUT * 5);
 };
 
 const resetSelectedScene = () => {
+  if (isApplyDisabled.value) {
+    return;
+  }
+
   selectedSceneIndex.value = currentSceneIndex.value;
 };
 
 export const useScene = () => {
   return {
+    SCENE_CHANGING_TIMEOUT,
     currentScene,
     selectedScene,
-    isSelectedSame,
+    isSceneChanging,
+    isApplyDisabled,
     selectNextScene,
     selectPrevScene,
     applySelectedScene,
