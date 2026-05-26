@@ -1,36 +1,29 @@
 <template>
   <div :class="['pr-4 space-y-6', flexSize]">
     <p class="text-3xl uppercase">now playing</p>
-    <div class="space-y-2">
-      <h3 class="text-2xl underline">Midnight Drive</h3>
-      <p class="text-xl">The Lofi Club</p>
-    </div>
+    <StationLabel :station="currentStation" />
     <div class="flex items-center gap-x-4">
-      <MediaPlayerButton textSize="text-xl" symbols="[ << ]" />
-      <MediaPlayerButton textSize="w-[12ch] text-2xl" :symbols="playSymbols" @click="togglePlayerStatus" />
-      <MediaPlayerButton textSize="text-xl" symbols="[ >> ]" />
+      <MediaPlayerButton textSize="text-xl" symbols="[ << ]" @click="selectPrevStation" />
+      <MediaPlayerButton textSize="w-[12ch] text-2xl" :symbols="playSymbols" @click="togglePlay" />
+      <MediaPlayerButton textSize="text-xl" symbols="[ >> ]" @click="selectNextStation" />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-  import { computed, ref } from "vue";
+  import { computed } from "vue";
+  import { useAudioPlayer } from "./composables/useAudioPlayer";
 
+  import StationLabel from "./components/StationLabel.vue";
   import MediaPlayerButton from "./components/MediaPlayerButton.vue";
 
   defineProps<{
     flexSize: string;
   }>();
 
-  type PlayerStatus = "playing" | "pause";
-
-  const playerStatus = ref<PlayerStatus>("pause");
+  const { currentStation, isPlaying, selectPrevStation, selectNextStation, togglePlay } = useAudioPlayer();
 
   const playSymbols = computed(() => {
-    return playerStatus.value === "playing" ? "[ PAUSE ]" : "[ PLAY ]";
+    return isPlaying.value ? "[ PAUSE ]" : "[ PLAY ]";
   });
-
-  const togglePlayerStatus = () => {
-    playerStatus.value = playerStatus.value === "playing" ? "pause" : "playing";
-  };
 </script>

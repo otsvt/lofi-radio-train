@@ -44,7 +44,7 @@ const applySelectedScene = () => {
   }, SCENE_CHANGING_TIMEOUT);
   setTimeout(() => {
     isSceneChanging.value = false;
-  }, SCENE_CHANGING_TIMEOUT * 5);
+  }, SCENE_CHANGING_TIMEOUT * 4);
 };
 
 const resetSelectedScene = () => {
