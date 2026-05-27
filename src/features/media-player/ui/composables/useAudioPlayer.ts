@@ -3,7 +3,7 @@ import { computed, ref } from "vue";
 import { radioStations } from "../constants/player";
 
 const currentStationIndex = ref(0);
-const currentVolume = ref(0.7);
+const currentVolume = ref(0.3);
 const isPlaying = ref(false);
 
 const currentStation = computed(() => {
