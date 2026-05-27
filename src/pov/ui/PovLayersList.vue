@@ -5,6 +5,7 @@
 <script setup lang="ts">
   import { computed } from "vue";
   import { useInterface } from "@/interface";
+  import { useFullscreen } from "@/shared/components/fullscreen";
   import { useCameraMovement } from "@/shared/composables";
 
   import PovLayer from "./PovLayer.vue";
@@ -20,12 +21,20 @@
 
   const { moveX, moveY, isZoomedIn: isCloseToWindow } = useCameraMovement();
 
+  const { isFullscreen } = useFullscreen();
+
   const { isInterfaceOpen } = useInterface();
 
   const povLayerClass = computed(() => [
     "layer translate-z-2 transition-all ease-linear",
     zIndex,
-    isCloseToWindow.value ? "bg-center" : "bg-bottom",
+    isFullscreen.value
+      ? isCloseToWindow.value
+        ? "bg-[center_calc(100%+5rem)]"
+        : "bg-center"
+      : isCloseToWindow.value
+        ? "bg-center"
+        : "bg-bottom",
   ]);
 
   const playerTransform = computed(() => {

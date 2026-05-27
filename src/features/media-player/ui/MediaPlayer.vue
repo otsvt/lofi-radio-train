@@ -9,11 +9,14 @@
       <MediaPlayerButton textSize="text-xl" symbols="[ >> ]" @click="selectNextStation" />
     </div>
     <VolumeSetting :volume="currentVolume" @decrease="decreaseVolume" @increase="increaseVolume" />
+    <FullscreenSettings />
   </div>
 </template>
 
 <script setup lang="ts">
   import { computed } from "vue";
+  import { FullscreenSettings } from "@/shared/components/fullscreen";
+
   import { useAudioPlayer } from "./composables/useAudioPlayer";
 
   import StationLabel from "./components/StationLabel.vue";
