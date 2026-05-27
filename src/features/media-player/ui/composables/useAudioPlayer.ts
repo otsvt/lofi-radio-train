@@ -3,6 +3,7 @@ import { computed, ref } from "vue";
 import { radioStations } from "../constants/player";
 
 const currentStationIndex = ref(0);
+const currentVolume = ref(0.7);
 const isPlaying = ref(false);
 
 const currentStation = computed(() => {
@@ -10,7 +11,9 @@ const currentStation = computed(() => {
 });
 
 const audio = new Audio(currentStation.value.src);
+
 audio.loop = true;
+audio.volume = currentVolume.value;
 
 audio.addEventListener("play", () => {
   isPlaying.value = true;
@@ -18,6 +21,11 @@ audio.addEventListener("play", () => {
 
 audio.addEventListener("pause", () => {
   isPlaying.value = false;
+});
+
+audio.addEventListener("volumechange", (event) => {
+  const target = event.currentTarget as HTMLAudioElement;
+  currentVolume.value = target.volume;
 });
 
 audio.addEventListener("ended", () => {
@@ -69,12 +77,31 @@ const selectPrevStation = () => {
   changeStationByIndex(prevIndex);
 };
 
+const increaseVolume = () => {
+  if (currentVolume.value === 1) {
+    return;
+  } else {
+    audio.volume = Number((audio.volume + 0.1).toFixed(1));
+  }
+};
+
+const decreaseVolume = () => {
+  if (currentVolume.value === 0) {
+    return;
+  } else {
+    audio.volume = Number((audio.volume - 0.1).toFixed(1));
+  }
+};
+
 export const useAudioPlayer = () => {
   return {
     currentStation,
+    currentVolume,
     isPlaying,
     togglePlay,
     selectNextStation,
     selectPrevStation,
+    increaseVolume,
+    decreaseVolume,
   };
 };
