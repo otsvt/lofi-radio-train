@@ -1,8 +1,13 @@
-import cityLayer1 from "@/shared/assets/scenes/1/scene-1-layer-1.png";
-import cityLayer2 from "@/shared/assets/scenes/1/scene-1-layer-2.png";
-import cityLayer3 from "@/shared/assets/scenes/1/scene-1-layer-3.png";
-import cityLayer4 from "@/shared/assets/scenes/1/scene-1-layer-4.png";
-import cityLayer5 from "@/shared/assets/scenes/1/scene-1-layer-5.png";
+import cityLayer1 from "@/shared/assets/scenes/night-city/layer-1.png";
+import cityLayer2 from "@/shared/assets/scenes/night-city/layer-2.png";
+import cityLayer3 from "@/shared/assets/scenes/night-city/layer-3.png";
+import cityLayer4 from "@/shared/assets/scenes/night-city/layer-4.png";
+import cityLayer5 from "@/shared/assets/scenes/night-city/layer-5.png";
+
+import mountainsLayer1 from "@/shared/assets/scenes/mountains/layer-1.png";
+import mountainsLayer2 from "@/shared/assets/scenes/mountains/layer-2.png";
+import mountainsLayer3 from "@/shared/assets/scenes/mountains/layer-3.png";
+import mountainsLayer4 from "@/shared/assets/scenes/mountains/layer-4.png";
 
 export type SceneVariant = {
   label: string;
@@ -37,6 +42,23 @@ export const sceneVariants: SceneVariant[] = [
   },
   {
     label: "mountains",
-    layers: [],
+    layers: [
+      {
+        src: mountainsLayer4,
+        duration: 300,
+      },
+      {
+        src: mountainsLayer3,
+        duration: 180,
+      },
+      {
+        src: mountainsLayer2,
+        duration: 90,
+      },
+      {
+        src: mountainsLayer1,
+        duration: 50,
+      },
+    ],
   },
 ];
