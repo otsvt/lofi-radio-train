@@ -1,6 +1,7 @@
 import { computed, ref } from "vue";
 
 import { radioStations } from "../constants/player";
+import { useAudioSignal } from "./useAudioSignal";
 
 const currentStationIndex = ref(0);
 const currentVolume = ref(0.3);
@@ -10,17 +11,22 @@ const currentStation = computed(() => {
   return radioStations[currentStationIndex.value];
 });
 
-const audio = new Audio(currentStation.value.src);
+const audio = new Audio();
 
 audio.loop = true;
 audio.volume = currentVolume.value;
+audio.src = currentStation.value.src;
+
+const { signalBars, prepareSignal, startSignal, stopSignal } = useAudioSignal(audio);
 
 audio.addEventListener("play", () => {
   isPlaying.value = true;
+  startSignal();
 });
 
 audio.addEventListener("pause", () => {
   isPlaying.value = false;
+  stopSignal();
 });
 
 audio.addEventListener("volumechange", (event) => {
@@ -30,13 +36,16 @@ audio.addEventListener("volumechange", (event) => {
 
 audio.addEventListener("ended", () => {
   isPlaying.value = false;
+  stopSignal();
 });
 
 const play = async () => {
   try {
+    await prepareSignal();
     await audio.play();
   } catch {
     isPlaying.value = false;
+    stopSignal();
   }
 };
 
@@ -78,19 +87,11 @@ const selectPrevStation = () => {
 };
 
 const increaseVolume = () => {
-  if (currentVolume.value === 1) {
-    return;
-  } else {
-    audio.volume = Number((audio.volume + 0.1).toFixed(1));
-  }
+  audio.volume = Math.min(1, Number((audio.volume + 0.1).toFixed(1)));
 };
 
 const decreaseVolume = () => {
-  if (currentVolume.value === 0) {
-    return;
-  } else {
-    audio.volume = Number((audio.volume - 0.1).toFixed(1));
-  }
+  audio.volume = Math.max(0, Number((audio.volume - 0.1).toFixed(1)));
 };
 
 export const useAudioPlayer = () => {
@@ -98,6 +99,7 @@ export const useAudioPlayer = () => {
     currentStation,
     currentVolume,
     isPlaying,
+    signalBars,
     togglePlay,
     selectNextStation,
     selectPrevStation,

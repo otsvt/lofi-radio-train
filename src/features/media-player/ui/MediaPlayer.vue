@@ -2,6 +2,7 @@
   <div :class="['pr-4 space-y-6', flexSize]">
     <p class="text-3xl uppercase">now playing</p>
     <StationLabel :station="currentStation" />
+    <AudioSignal :bars="signalBars" />
     <div class="flex items-center gap-x-4">
       <MediaPlayerButton textSize="text-xl" symbols="[ << ]" @click="selectPrevStation" />
       <MediaPlayerButton textSize="w-[12ch] text-2xl" :symbols="playSymbols" @click="togglePlay" />
@@ -18,6 +19,7 @@
   import StationLabel from "./components/StationLabel.vue";
   import MediaPlayerButton from "./components/MediaPlayerButton.vue";
   import VolumeSetting from "./components/VolumeSetting.vue";
+  import AudioSignal from "./components/AudioSignal.vue";
 
   defineProps<{
     flexSize: string;
@@ -27,6 +29,7 @@
     currentStation,
     currentVolume,
     isPlaying,
+    signalBars,
     selectPrevStation,
     selectNextStation,
     togglePlay,

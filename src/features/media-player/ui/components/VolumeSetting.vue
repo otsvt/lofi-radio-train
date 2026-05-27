@@ -6,7 +6,10 @@
       <div class="flex items-end gap-x-2">
         <div
           v-for="vol in 10"
-          :class="['w-1.5 bg-panel-text/80 transition-all', vol <= volumeLevel ? 'h-8' : 'h-3 opacity-30']"
+          :class="[
+            'w-1.5 bg-panel-text/80 transition-all shadow-md shadow-panel-text/40',
+            vol <= volumeLevel ? 'h-8' : 'h-3 opacity-30',
+          ]"
         ></div>
       </div>
       <SettingButton symbols=">" @click="emit('increase')" />
