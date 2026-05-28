@@ -4,14 +4,12 @@
 
 <script setup lang="ts">
   import { computed } from "vue";
-  import { useInterface } from "@/interface";
   import { useFullscreen } from "@/shared/components/fullscreen";
   import { useCameraMovement } from "@/shared/composables";
 
   import PovLayer from "./PovLayer.vue";
 
   import bag from "@/shared/assets/main-backgrounds/bag.png";
-  import player from "@/shared/assets/main-backgrounds/player.png";
   import leftLeg from "@/shared/assets/main-backgrounds/left-leg.png";
   import rightLeg from "@/shared/assets/main-backgrounds/right-leg.png";
 
@@ -22,8 +20,6 @@
   const { moveX, moveY, isZoomedIn: isCloseToWindow } = useCameraMovement();
 
   const { isFullscreen } = useFullscreen();
-
-  const { isInterfaceOpen } = useInterface();
 
   const povLayerClass = computed(() => [
     "layer translate-z-2 transition-all ease-linear",
@@ -36,14 +32,6 @@
         ? "bg-center"
         : "bg-bottom",
   ]);
-
-  const playerTransform = computed(() => {
-    if (isInterfaceOpen.value) {
-      return `translateX(-5rem) translateY(25vh)`;
-    } else {
-      return `rotateY(${moveX.value * 2}deg) rotateX(${moveY.value * 4}deg)`;
-    }
-  });
 
   const povLayers = computed(() => [
     {
@@ -60,11 +48,6 @@
       image: bag,
       layerClass: povLayerClass.value,
       transform: `rotateY(${moveX.value * 2}deg) rotateX(${moveY.value * 4}deg)`,
-    },
-    {
-      image: player,
-      layerClass: povLayerClass.value,
-      transform: playerTransform.value,
     },
   ]);
 </script>

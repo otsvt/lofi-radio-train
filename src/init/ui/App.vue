@@ -5,8 +5,8 @@
     <BlindsLayer zIndex="z-3" />
     <WindowLayer zIndex="z-4" />
     <PovLayersList zIndex="z-5" />
-    <VisionShadow zIndex="z-6" />
-    <InterfaceOnButton zIndex="z-7" />
+    <PlayerLayer zIndex="z-6" />
+    <VisionShadow zIndex="z-7" />
     <VisionBlur zIndex="z-8" blur="backdrop-blur-xs" />
     <InterfaceLayer zIndex="z-9" />
     <InterfaceHologram zIndex="z-10" />
@@ -14,8 +14,8 @@
 </template>
 
 <script setup lang="ts">
-  import { BlindsLayer, PovLayersList, VisionBlur, VisionShadow, WindowLayer } from "@/pov";
-  import { InterfaceHologram, InterfaceLayer, InterfaceOnButton } from "@/interface";
+  import { BlindsLayer, PovLayersList, PlayerLayer, VisionBlur, VisionShadow, WindowLayer } from "@/pov";
+  import { InterfaceHologram, InterfaceLayer } from "@/interface";
   import { SceneLayer } from "@/features/scenes";
   import { useWeather, WeatherLayer } from "@/features/weather";
 

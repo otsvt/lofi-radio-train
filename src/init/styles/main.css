@@ -40,12 +40,6 @@
     @apply h-full shrink-0 object-cover;
   }
 
-  .interface-button-position {
-    @apply absolute;
-    bottom: calc(var(--index) * 1.9);
-    right: calc(var(--index) * 19);
-  }
-
   .radio-button {
     @apply px-2 flex items-center justify-center ring-panel-text/40 cursor-pointer transition-opacity hover:opacity-80 has-checked:ring-2;
   }
