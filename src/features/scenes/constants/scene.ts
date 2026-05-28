@@ -9,6 +9,9 @@ import mountainsLayer2 from "@/shared/assets/scenes/mountains/layer-2.png";
 import mountainsLayer3 from "@/shared/assets/scenes/mountains/layer-3.png";
 import mountainsLayer4 from "@/shared/assets/scenes/mountains/layer-4.png";
 
+import islandLayer2 from "@/shared/assets/scenes/island/layer-2.png";
+import islandLayer3 from "@/shared/assets/scenes/island/layer-3.png";
+
 export type SceneVariant = {
   label: string;
   layers: { src: string; duration: number }[];
@@ -58,6 +61,19 @@ export const sceneVariants: SceneVariant[] = [
       {
         src: mountainsLayer1,
         duration: 50,
+      },
+    ],
+  },
+  {
+    label: "island",
+    layers: [
+      {
+        src: islandLayer3,
+        duration: 300,
+      },
+      {
+        src: islandLayer2,
+        duration: 180,
       },
     ],
   },
