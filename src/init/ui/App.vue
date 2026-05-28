@@ -16,12 +16,11 @@
 </template>
 
 <script setup lang="ts">
+  import { DeviceGuard } from "@/core";
   import { BlindsLayer, PovLayersList, PlayerLayer, VisionBlur, VisionShadow, WindowLayer } from "@/pov";
   import { InterfaceHologram, InterfaceLayer } from "@/interface";
   import { SceneLayer } from "@/features/scenes";
   import { useWeather, WeatherLayer } from "@/features/weather";
-
-  import DeviceGuard from "./DeviceGuard.vue";
 
   const { weatherConfig } = useWeather();
 </script>
