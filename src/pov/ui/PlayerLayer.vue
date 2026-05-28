@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="[layerClass, isHovered ? 'player-hovered' : '']"
+    :class="[layerClass, isHovered ? 'player-hovered' : 'player-waiting']"
     :style="{
       backgroundImage: `url(${player})`,
       transform: playerTransform,
@@ -66,6 +66,21 @@
   }
 
   .player-hovered {
-    filter: drop-shadow(0 0 0.75rem rgba(255, 145, 38, 0.8)) brightness(1.4);
+    filter: drop-shadow(0 0 0.55rem rgba(255, 145, 38, 0.8)) brightness(1.4);
+  }
+
+  .player-waiting {
+    animation: player-glow 10s ease-in-out infinite;
+  }
+
+  @keyframes player-glow {
+    0%,
+    70%,
+    100% {
+      filter: drop-shadow(0 0 0 rgba(255, 145, 38, 0)) brightness(1);
+    }
+    80% {
+      filter: drop-shadow(0 0 0.45rem rgba(255, 145, 38, 0.6)) brightness(1.2);
+    }
   }
 </style>
