@@ -1,15 +1,24 @@
 import sleepEasyAmbient from "@/shared/audio/radio/sleep-easy-ambient.mp3";
 import goodMornigAmbient from "@/shared/audio/radio/good-morning-ambient.mp3";
+import lofiChillHipHop from "@/shared/audio/radio/lofi-chill-hip-hop.mp3";
+import lofiSoulHipHop from "@/shared/audio/radio/lofi-soul-hip-hop.mp3";
+import minimalistPiano from "@/shared/audio/radio/minimalist-piano.mp3";
 
 export type Statiion = {
   title: string;
   artist: string;
   src: string;
   license: "CC BY";
-  source: "Free Music Archive";
+  source?: "Free Music Archive";
 };
 
 export const radioStations: Statiion[] = [
+  {
+    title: "Minimalist Piano",
+    artist: "Ketsa",
+    license: "CC BY",
+    src: minimalistPiano,
+  },
   {
     title: "Sleep Easy Ambient",
     artist: "Ketsa",
@@ -23,5 +32,17 @@ export const radioStations: Statiion[] = [
     source: "Free Music Archive",
     license: "CC BY",
     src: goodMornigAmbient,
+  },
+  {
+    title: "Lofi Soul Hip Hop",
+    artist: "Ketsa",
+    license: "CC BY",
+    src: lofiSoulHipHop,
+  },
+  {
+    title: "Lofi Chill Hip Hop",
+    artist: "Ketsa",
+    license: "CC BY",
+    src: lofiChillHipHop,
   },
 ];

@@ -8,7 +8,7 @@
       }"
     >
       <img class="scene-frame" :src="layer.src" />
-      <img class="scene-frame" :src="layer.src" />
+      <img class="scene-frame -ml-px" :src="layer.src" />
     </div>
   </div>
 </template>
