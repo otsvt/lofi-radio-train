@@ -14,6 +14,11 @@ import islandLayer3 from "@/shared/assets/scenes/island/layer-3.png";
 import islandLayer4 from "@/shared/assets/scenes/island/layer-4.png";
 import islandLayer5 from "@/shared/assets/scenes/island/layer-5.png";
 
+import winterVillageLayer1 from "@/shared/assets/scenes/winter-village/layer-1.png";
+import winterVillageLayer2 from "@/shared/assets/scenes/winter-village/layer-2.png";
+import winterVillageLayer3 from "@/shared/assets/scenes/winter-village/layer-3.png";
+import winterVillageLayer4 from "@/shared/assets/scenes/winter-village/layer-4.png";
+
 export type SceneVariant = {
   label: string;
   layers: { src: string; duration: number }[];
@@ -84,6 +89,27 @@ export const sceneVariants: SceneVariant[] = [
       {
         src: islandLayer2,
         duration: 50,
+      },
+    ],
+  },
+  {
+    label: "winter village",
+    layers: [
+      {
+        src: winterVillageLayer4,
+        duration: 500,
+      },
+      {
+        src: winterVillageLayer3,
+        duration: 320,
+      },
+      {
+        src: winterVillageLayer2,
+        duration: 150,
+      },
+      {
+        src: winterVillageLayer1,
+        duration: 70,
       },
     ],
   },
