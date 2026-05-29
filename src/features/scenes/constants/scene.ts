@@ -19,6 +19,11 @@ import winterVillageLayer2 from "@/shared/assets/scenes/winter-village/layer-2.p
 import winterVillageLayer3 from "@/shared/assets/scenes/winter-village/layer-3.png";
 import winterVillageLayer4 from "@/shared/assets/scenes/winter-village/layer-4.png";
 
+import cyberPunkCityLayer1 from "@/shared/assets/scenes/cyberpunk-city/layer-1.png";
+import cyberPunkCityLayer2 from "@/shared/assets/scenes/cyberpunk-city/layer-2.png";
+import cyberPunkCityLayer3 from "@/shared/assets/scenes/cyberpunk-city/layer-3.png";
+import cyberPunkCityLayer4 from "@/shared/assets/scenes/cyberpunk-city/layer-4.png";
+
 export type SceneVariant = {
   label: string;
   layers: { src: string; duration: number }[];
@@ -110,6 +115,27 @@ export const sceneVariants: SceneVariant[] = [
       {
         src: winterVillageLayer1,
         duration: 70,
+      },
+    ],
+  },
+  {
+    label: "cyber punk city",
+    layers: [
+      {
+        src: cyberPunkCityLayer4,
+        duration: 440,
+      },
+      {
+        src: cyberPunkCityLayer3,
+        duration: 150,
+      },
+      {
+        src: cyberPunkCityLayer2,
+        duration: 70,
+      },
+      {
+        src: cyberPunkCityLayer1,
+        duration: 30,
       },
     ],
   },
