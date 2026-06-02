@@ -24,6 +24,10 @@ import cyberPunkCityLayer2 from "@/shared/assets/scenes/cyberpunk-city/layer-2.p
 import cyberPunkCityLayer3 from "@/shared/assets/scenes/cyberpunk-city/layer-3.png";
 import cyberPunkCityLayer4 from "@/shared/assets/scenes/cyberpunk-city/layer-4.png";
 
+import lonelyMotelLayer1 from "@/shared/assets/scenes/lonely-motel/layer-1.png";
+import lonelyMotelLayer2 from "@/shared/assets/scenes/lonely-motel/layer-2.png";
+import lonelyMotelLayer3 from "@/shared/assets/scenes/lonely-motel/layer-3.png";
+
 export type SceneVariant = {
   label: string;
   layers: { src: string; duration: number }[];
@@ -136,6 +140,23 @@ export const sceneVariants: SceneVariant[] = [
       {
         src: cyberPunkCityLayer1,
         duration: 30,
+      },
+    ],
+  },
+  {
+    label: "lonely motel",
+    layers: [
+      {
+        src: lonelyMotelLayer3,
+        duration: 210,
+      },
+      {
+        src: lonelyMotelLayer2,
+        duration: 170,
+      },
+      {
+        src: lonelyMotelLayer1,
+        duration: 60,
       },
     ],
   },
