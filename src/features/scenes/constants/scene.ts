@@ -9,10 +9,10 @@ import mountainsLayer2 from "@/shared/assets/scenes/mountains/layer-2.png";
 import mountainsLayer3 from "@/shared/assets/scenes/mountains/layer-3.png";
 import mountainsLayer4 from "@/shared/assets/scenes/mountains/layer-4.png";
 
+import islandLayer1 from "@/shared/assets/scenes/island/layer-1.png";
 import islandLayer2 from "@/shared/assets/scenes/island/layer-2.png";
 import islandLayer3 from "@/shared/assets/scenes/island/layer-3.png";
 import islandLayer4 from "@/shared/assets/scenes/island/layer-4.png";
-import islandLayer5 from "@/shared/assets/scenes/island/layer-5.png";
 
 import winterVillageLayer1 from "@/shared/assets/scenes/winter-village/layer-1.png";
 import winterVillageLayer2 from "@/shared/assets/scenes/winter-village/layer-2.png";
@@ -27,6 +27,11 @@ import cyberPunkCityLayer4 from "@/shared/assets/scenes/cyberpunk-city/layer-4.p
 import lonelyMotelLayer1 from "@/shared/assets/scenes/lonely-motel/layer-1.png";
 import lonelyMotelLayer2 from "@/shared/assets/scenes/lonely-motel/layer-2.png";
 import lonelyMotelLayer3 from "@/shared/assets/scenes/lonely-motel/layer-3.png";
+
+import wildWestLayer1 from "@/shared/assets/scenes/wild-west/layer-1.png";
+import wildWestLayer2 from "@/shared/assets/scenes/wild-west/layer-2.png";
+import wildWestLayer3 from "@/shared/assets/scenes/wild-west/layer-3.png";
+import wildWestLayer4 from "@/shared/assets/scenes/wild-west/layer-4.png";
 
 export type SceneVariant = {
   label: string;
@@ -64,7 +69,7 @@ export const sceneVariants: SceneVariant[] = [
     layers: [
       {
         src: mountainsLayer4,
-        duration: 300,
+        duration: 270,
       },
       {
         src: mountainsLayer3,
@@ -84,19 +89,19 @@ export const sceneVariants: SceneVariant[] = [
     label: "island",
     layers: [
       {
-        src: islandLayer5,
+        src: islandLayer4,
         duration: 300,
       },
       {
-        src: islandLayer4,
+        src: islandLayer3,
         duration: 180,
       },
       {
-        src: islandLayer3,
+        src: islandLayer2,
         duration: 90,
       },
       {
-        src: islandLayer2,
+        src: islandLayer1,
         duration: 50,
       },
     ],
@@ -157,6 +162,27 @@ export const sceneVariants: SceneVariant[] = [
       {
         src: lonelyMotelLayer1,
         duration: 40,
+      },
+    ],
+  },
+  {
+    label: "wild west",
+    layers: [
+      {
+        src: wildWestLayer4,
+        duration: 219,
+      },
+      {
+        src: wildWestLayer3,
+        duration: 90,
+      },
+      {
+        src: wildWestLayer2,
+        duration: 50,
+      },
+      {
+        src: wildWestLayer1,
+        duration: 35,
       },
     ],
   },
