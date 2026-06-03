@@ -43,19 +43,19 @@ export const sceneVariants: SceneVariant[] = [
       },
       {
         src: cityLayer4,
-        duration: 1000,
+        duration: 900,
       },
       {
         src: cityLayer3,
-        duration: 250,
+        duration: 240,
       },
       {
         src: cityLayer2,
-        duration: 50,
+        duration: 70,
       },
       {
         src: cityLayer1,
-        duration: 20,
+        duration: 35,
       },
     ],
   },
@@ -68,15 +68,15 @@ export const sceneVariants: SceneVariant[] = [
       },
       {
         src: mountainsLayer3,
-        duration: 180,
+        duration: 150,
       },
       {
         src: mountainsLayer2,
-        duration: 90,
+        duration: 70,
       },
       {
         src: mountainsLayer1,
-        duration: 50,
+        duration: 30,
       },
     ],
   },
@@ -123,7 +123,7 @@ export const sceneVariants: SceneVariant[] = [
     ],
   },
   {
-    label: "cyber punk city",
+    label: "cyberpunk city",
     layers: [
       {
         src: cyberPunkCityLayer4,
@@ -148,15 +148,15 @@ export const sceneVariants: SceneVariant[] = [
     layers: [
       {
         src: lonelyMotelLayer3,
-        duration: 210,
+        duration: 190,
       },
       {
         src: lonelyMotelLayer2,
-        duration: 170,
+        duration: 120,
       },
       {
         src: lonelyMotelLayer1,
-        duration: 60,
+        duration: 40,
       },
     ],
   },
