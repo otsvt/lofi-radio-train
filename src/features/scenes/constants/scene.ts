@@ -33,6 +33,11 @@ import wildWestLayer2 from "@/shared/assets/scenes/wild-west/layer-2.png";
 import wildWestLayer3 from "@/shared/assets/scenes/wild-west/layer-3.png";
 import wildWestLayer4 from "@/shared/assets/scenes/wild-west/layer-4.png";
 
+import silentLakeLayer1 from "@/shared/assets/scenes/silent-lake/layer-1.png";
+import silentLakeLayer2 from "@/shared/assets/scenes/silent-lake/layer-2.png";
+import silentLakeLayer3 from "@/shared/assets/scenes/silent-lake/layer-3.png";
+import silentLakeLayer4 from "@/shared/assets/scenes/silent-lake/layer-4.png";
+
 export type SceneVariant = {
   label: string;
   layers: { src: string; duration: number }[];
@@ -65,7 +70,7 @@ export const sceneVariants: SceneVariant[] = [
     ],
   },
   {
-    label: "mountains",
+    label: "alpine mountains",
     layers: [
       {
         src: mountainsLayer4,
@@ -82,27 +87,6 @@ export const sceneVariants: SceneVariant[] = [
       {
         src: mountainsLayer1,
         duration: 30,
-      },
-    ],
-  },
-  {
-    label: "island",
-    layers: [
-      {
-        src: islandLayer4,
-        duration: 300,
-      },
-      {
-        src: islandLayer3,
-        duration: 180,
-      },
-      {
-        src: islandLayer2,
-        duration: 90,
-      },
-      {
-        src: islandLayer1,
-        duration: 50,
       },
     ],
   },
@@ -149,6 +133,27 @@ export const sceneVariants: SceneVariant[] = [
     ],
   },
   {
+    label: "evening island",
+    layers: [
+      {
+        src: islandLayer4,
+        duration: 700,
+      },
+      {
+        src: islandLayer3,
+        duration: 350,
+      },
+      {
+        src: islandLayer2,
+        duration: 170,
+      },
+      {
+        src: islandLayer1,
+        duration: 40,
+      },
+    ],
+  },
+  {
     label: "lonely motel",
     layers: [
       {
@@ -166,11 +171,11 @@ export const sceneVariants: SceneVariant[] = [
     ],
   },
   {
-    label: "wild west",
+    label: "dusty west",
     layers: [
       {
         src: wildWestLayer4,
-        duration: 219,
+        duration: 220,
       },
       {
         src: wildWestLayer3,
@@ -183,6 +188,27 @@ export const sceneVariants: SceneVariant[] = [
       {
         src: wildWestLayer1,
         duration: 35,
+      },
+    ],
+  },
+  {
+    label: "silent lake",
+    layers: [
+      {
+        src: silentLakeLayer4,
+        duration: 250,
+      },
+      {
+        src: silentLakeLayer3,
+        duration: 110,
+      },
+      {
+        src: silentLakeLayer2,
+        duration: 70,
+      },
+      {
+        src: silentLakeLayer1,
+        duration: 30,
       },
     ],
   },
