@@ -17,11 +17,19 @@
           >
             <header class="py-2 flex items-center justify-between gap-x-2l">
               <h2 class="text-4xl uppercase">lofi radio train</h2>
-              <CloseButton
-                class="transition-shadow hover:ring-2"
-                iconClass="h-10 w-10 stroke-panel-text"
-                @click="closeInterface"
-              />
+              <div class="h-full flex gap-x-4">
+                <GithubButton
+                  class="transition-shadow hover:ring-2"
+                  iconClass="h-10 w-10 stroke-panel-text"
+                  @click="openGithub"
+                />
+                <Divider size="w-1" color="bg-panel-text/80" />
+                <CloseButton
+                  class="transition-shadow hover:ring-2"
+                  iconClass="h-10 w-10 stroke-panel-text"
+                  @click="closeInterface"
+                />
+              </div>
             </header>
             <Divider size="h-1" color="bg-panel-text/80" />
             <div class="grow py-4 flex">
@@ -41,8 +49,9 @@
   import { ref, watch } from "vue";
   import { MediaPlayer } from "@/features/media-player";
   import { useCameraMovement } from "@/shared/composables";
-  import { CloseButton } from "@/shared/components/buttons/close-button";
   import { Divider } from "@/shared/components/divider";
+  import { CloseButton } from "@/shared/components/buttons/close-button";
+  import { GithubButton } from "@/shared/components/buttons/github-button";
 
   import { useInterface } from "../composables/useInterface";
 
@@ -57,6 +66,10 @@
   const { isInterfaceOpen, closeInterface } = useInterface();
 
   const isShowingPanel = ref(false);
+
+  const openGithub = () => {
+    window.open("https://github.com/otsvt", "_blank");
+  };
 
   watch(isInterfaceOpen, (val) => {
     if (val) {
