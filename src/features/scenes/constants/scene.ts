@@ -162,7 +162,7 @@ export const sceneVariants: SceneVariant[] = [
       },
       {
         src: islandLayer3,
-        duration: 350,
+        duration: 250,
       },
       {
         src: islandLayer2,
