@@ -45,7 +45,7 @@ export type SceneVariant = {
 
 export const sceneVariants: SceneVariant[] = [
   {
-    label: "night city",
+    label: "night harbor",
     layers: [
       {
         src: cityLayer5,
@@ -66,27 +66,6 @@ export const sceneVariants: SceneVariant[] = [
       {
         src: cityLayer1,
         duration: 35,
-      },
-    ],
-  },
-  {
-    label: "alpine mountains",
-    layers: [
-      {
-        src: mountainsLayer4,
-        duration: 270,
-      },
-      {
-        src: mountainsLayer3,
-        duration: 150,
-      },
-      {
-        src: mountainsLayer2,
-        duration: 70,
-      },
-      {
-        src: mountainsLayer1,
-        duration: 30,
       },
     ],
   },
@@ -133,6 +112,48 @@ export const sceneVariants: SceneVariant[] = [
     ],
   },
   {
+    label: "dusty west",
+    layers: [
+      {
+        src: wildWestLayer4,
+        duration: 220,
+      },
+      {
+        src: wildWestLayer3,
+        duration: 90,
+      },
+      {
+        src: wildWestLayer2,
+        duration: 50,
+      },
+      {
+        src: wildWestLayer1,
+        duration: 35,
+      },
+    ],
+  },
+  {
+    label: "alpine mountains",
+    layers: [
+      {
+        src: mountainsLayer4,
+        duration: 270,
+      },
+      {
+        src: mountainsLayer3,
+        duration: 150,
+      },
+      {
+        src: mountainsLayer2,
+        duration: 70,
+      },
+      {
+        src: mountainsLayer1,
+        duration: 30,
+      },
+    ],
+  },
+  {
     label: "evening island",
     layers: [
       {
@@ -167,27 +188,6 @@ export const sceneVariants: SceneVariant[] = [
       {
         src: lonelyMotelLayer1,
         duration: 40,
-      },
-    ],
-  },
-  {
-    label: "dusty west",
-    layers: [
-      {
-        src: wildWestLayer4,
-        duration: 220,
-      },
-      {
-        src: wildWestLayer3,
-        duration: 90,
-      },
-      {
-        src: wildWestLayer2,
-        duration: 50,
-      },
-      {
-        src: wildWestLayer1,
-        duration: 35,
       },
     ],
   },
