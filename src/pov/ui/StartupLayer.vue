@@ -34,7 +34,7 @@
     zIndex: string;
   }>();
 
-  const TRANSITION_DURATION = 750;
+  const TRANSITION_DURATION = 1000;
 
   const isOpening = ref(false);
   const isLoaded = ref(false);
