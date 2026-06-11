@@ -17,8 +17,8 @@ export const weatherVariants = {
   },
   heavyRain: {
     type: "rain",
-    intensity: 1850,
-    speed: 2.15,
+    intensity: 1550,
+    speed: 2.1,
     wind: 1.5,
     opacity: 0.32,
     travelSpeed: -5.5,
