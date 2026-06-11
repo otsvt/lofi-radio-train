@@ -16,7 +16,7 @@
 
   const canOpenApp = ref(false);
 
-  const screenQuery = "(min-width: 1280px)";
+  const screenQuery = "(min-width: 1024px)";
   let mediaQuery: MediaQueryList | null = null;
 
   const isTvDevice = () => {
