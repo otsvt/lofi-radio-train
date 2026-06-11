@@ -68,7 +68,7 @@
   const isShowingPanel = ref(false);
 
   const openGithub = () => {
-    window.open("https://github.com/otsvt", "_blank");
+    window.open("https://github.com/otsvt/lofi-radio-train", "_blank");
   };
 
   watch(isInterfaceOpen, (val) => {

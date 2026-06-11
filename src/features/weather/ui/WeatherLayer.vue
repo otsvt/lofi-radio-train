@@ -25,6 +25,7 @@
     wind: number;
     opacity: number;
     zIndex: string;
+    travelSpeed: number;
   }>();
 
   const canvasRef = ref<HTMLCanvasElement | null>(null);
@@ -36,6 +37,10 @@
   let particles: Particle[] = [];
 
   const random = (min: number, max: number) => Math.random() * (max - min) + min;
+
+  const getTravelSpeed = () => {
+    return props.travelSpeed;
+  };
 
   const getOpacityBucket = (): Bucket => {
     const value = Math.random();
@@ -56,9 +61,9 @@
   };
 
   const createRainParticle = (randomY = true): Particle => ({
-    x: random(0, width),
+    x: random(-width * 0.25, width * 1.25),
     y: randomY ? random(-height, height) : random(-120, -20),
-    speedX: props.wind + random(-0.15, 0.15),
+    speedX: random(-0.15, 0.15),
     speedY: random(10, 18) * props.speed,
     length: random(16, 34),
     radius: random(0.7, 1.2),
@@ -66,9 +71,9 @@
   });
 
   const createSnowParticle = (randomY = true): Particle => ({
-    x: random(0, width),
+    x: random(-width * 0.25, width * 1.25),
     y: randomY ? random(-height, height) : random(-80, -20),
-    speedX: props.wind + random(-0.35, 0.35),
+    speedX: random(-0.35, 0.35),
     speedY: random(0.7, 2) * props.speed,
     length: 0,
     radius: random(1, 3.2),
@@ -105,10 +110,10 @@
     buildParticles();
   };
 
-  const resetParticle = (particle: Particle) => {
+  const resetParticleFromTop = (particle: Particle) => {
     const next = createParticle(false);
 
-    particle.x = random(0, width);
+    particle.x = random(-width * 0.25, width * 1.25);
     particle.y = next.y;
     particle.speedX = next.speedX;
     particle.speedY = next.speedY;
@@ -117,19 +122,43 @@
     particle.opacityBucket = next.opacityBucket;
   };
 
+  const resetParticleFromSide = (particle: Particle) => {
+    const travelSpeed = getTravelSpeed();
+
+    if (travelSpeed < 0) {
+      particle.x = random(width + 20, width + width * 0.25);
+    } else if (travelSpeed > 0) {
+      particle.x = random(-width * 0.25, -20);
+    } else {
+      particle.x = random(0, width);
+    }
+
+    particle.y = random(-height * 0.2, height);
+    particle.opacityBucket = getOpacityBucket();
+  };
+
   const updateParticles = () => {
+    const travelSpeed = getTravelSpeed();
+
     for (const particle of particles) {
-      particle.x += particle.speedX;
+      particle.x += particle.speedX + props.wind + travelSpeed;
       particle.y += particle.speedY;
 
-      if (particle.y > height + 60 || particle.x < -80 || particle.x > width + 80) {
-        resetParticle(particle);
+      if (particle.y > height + 80) {
+        resetParticleFromTop(particle);
+        continue;
+      }
+
+      if (particle.x < -width * 0.3 || particle.x > width * 1.3) {
+        resetParticleFromSide(particle);
       }
     }
   };
 
   const drawRainBucket = (bucket: Bucket) => {
     if (!ctx) return;
+
+    const travelSpeed = getTravelSpeed();
 
     ctx.beginPath();
     ctx.strokeStyle = `rgba(210, 225, 255, ${getBucketOpacity(bucket)})`;
@@ -138,8 +167,10 @@
     for (const particle of particles) {
       if (particle.opacityBucket !== bucket) continue;
 
+      const horizontalSpeed = particle.speedX + props.wind + travelSpeed;
+
       ctx.moveTo(particle.x, particle.y);
-      ctx.lineTo(particle.x - particle.speedX * 2.2, particle.y - particle.length);
+      ctx.lineTo(particle.x - horizontalSpeed * 2.2, particle.y - particle.length);
     }
 
     ctx.stroke();
@@ -194,7 +225,7 @@
   };
 
   watch(
-    () => [props.type, props.intensity, props.speed, props.wind, props.opacity],
+    () => [props.type, props.intensity, props.speed],
     () => {
       buildParticles();
     },
