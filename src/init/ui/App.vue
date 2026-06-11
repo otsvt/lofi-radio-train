@@ -11,13 +11,14 @@
       <VisionBlur zIndex="z-8" blur="backdrop-blur-xs" />
       <InterfaceLayer zIndex="z-9" />
       <InterfaceHologram zIndex="z-10" />
+      <StartupLayer zIndex="z-11" />
     </main>
   </DeviceGuard>
 </template>
 
 <script setup lang="ts">
   import { DeviceGuard } from "@/core";
-  import { BlindsLayer, PovLayersList, PlayerLayer, VisionBlur, VisionShadow, WindowLayer } from "@/pov";
+  import { BlindsLayer, PovLayersList, PlayerLayer, VisionBlur, VisionShadow, WindowLayer, StartupLayer } from "@/pov";
   import { InterfaceHologram, InterfaceLayer } from "@/interface";
   import { SceneLayer } from "@/features/scenes";
   import { useWeather, WeatherLayer } from "@/features/weather";

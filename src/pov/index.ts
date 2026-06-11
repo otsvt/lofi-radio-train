@@ -1,3 +1,4 @@
+export { default as StartupLayer } from "./ui/StartupLayer.vue";
 export { default as VisionShadow } from "./ui/VisionShadow.vue";
 export { default as VisionBlur } from "./ui/VisionBlur.vue";
 export { default as WindowLayer } from "./ui/WindowLayer.vue";
