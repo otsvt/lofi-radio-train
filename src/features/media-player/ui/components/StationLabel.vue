@@ -6,7 +6,7 @@
 </template>
 
 <script setup lang="ts">
-  import { type Statiion } from "../constants/player";
+  import { type Station } from "../constants/player";
 
-  defineProps<{ station: Statiion }>();
+  defineProps<{ station: Station }>();
 </script>

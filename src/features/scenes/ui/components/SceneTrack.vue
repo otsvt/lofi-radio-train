@@ -3,6 +3,7 @@
     <div
       v-for="layer in scene.layers"
       class="scene-layer animation-move"
+      :key="layer.src"
       :style="{
         animationDuration: `${layer.duration}s`,
       }"
