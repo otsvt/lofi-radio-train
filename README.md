@@ -2,7 +2,7 @@
 
 Atmospheric lofi radio with parallax train-window scenes, weather effects and ambient music.
 
-**Live Demo:** https://lofi-radio-train.pages.dev/
+**Live Demo:** https://lofi-radio-train.pages.dev
 
 ## About
 
@@ -12,15 +12,15 @@ The project combines animated parallax scenes outside the window, weather switch
 
 ## Features
 
-* switchable train-window scenes
-* rain / snow / clear weather modes
-* built-in lofi player with multiple tracks
-* audio visualizer
-* fullscreen mode
+- switchable train-window scenes
+- rain / snow / clear weather modes
+- built-in lofi player with multiple tracks
+- audio visualizer
+- fullscreen mode
 
 ## Tech Stack
 
-* Vue 3
-* TypeScript
-* Vite
-* Tailwind CSS
+- Vue 3
+- TypeScript
+- Vite
+- Tailwind CSS
